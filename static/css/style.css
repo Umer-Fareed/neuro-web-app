@@ -1,0 +1,491 @@
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --secondary: #06b6d4;
+  --secondary-dark: #0891b2;
+  --accent: #f97316;
+  --accent-dark: #ea580c;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --light: #f3f4f6;
+  --dark: #1f2937;
+  --gray: #6b7280;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+  color: var(--white);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--light);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/static/images/brain-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  animation: fadeInUp 1.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.4s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section */
+.features {
+  padding: 5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.feature-card h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.feature-card p {
+  color: var(--gray);
+}
+
+/* Dashboard */
+.dashboard-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.dashboard-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+/* Auth Forms */
+.auth-container {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-form .form-control {
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-form .btn {
+  width: 100%;
+  border-radius: 50px;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.auth-links a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Prediction Page */
+.prediction-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.upload-area {
+  border: 2px dashed var(--primary);
+  border-radius: 10px;
+  padding: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  background-color: rgba(79, 70, 229, 0.05);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.result-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.result-image {
+  max-width: 300px;
+  margin: 0 auto 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.result-type {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.result-confidence {
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+/* Chatbot Page */
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.chat-box {
+  height: 400px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  background-color: var(--white);
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+}
+
+.chat-send-btn {
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: var(--primary);
+  color: var(--white);
+  margin-left: auto;
+  border-top-right-radius: 0;
+}
+
+.bot-message {
+  background-color: #e5e7eb;
+  color: var(--dark);
+  border-top-left-radius: 0;
+}
+
+/* Health Plan Page */
+.health-plan-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.plan-section {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.plan-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--light);
+  padding-bottom: 0.5rem;
+}
+
+.plan-list {
+  list-style-type: none;
+}
+
+.plan-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--light);
+  display: flex;
+  align-items: center;
+}
+
+.plan-list li:last-child {
+  border-bottom: none;
+}
+
+.plan-list li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Print styles for health plan */
+@media print {
+  nav,
+  footer,
+  .btn,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .health-plan-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .plan-section {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid !important;
+  }
+
+  .section-divider {
+    border-top: 1px solid #ddd !important;
+    background: none !important;
+    margin: 1rem 0 !important;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: black !important;
+  }
+
+  .plan-card {
+    background-color: #f9f9f9 !important;
+    border-left: 2px solid #333 !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease;
+}
+
+/* Image Carousel */
+.carousel-container {
+  margin: 4rem 0;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .feature-card {
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Loading Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary);
+}
