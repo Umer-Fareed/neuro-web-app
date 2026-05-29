@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Plan - NeuroAssist</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .plan-card {
+            border-left: 4px solid var(--primary);
+            background-color: rgba(79, 70, 229, 0.05);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+        .priority-high {
+            border-left-color: var(--danger);
+        }
+        .priority-medium {
+            border-left-color: var(--warning);
+        }
+        .priority-low {
+            border-left-color: var(--success);
+        }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-brain me-2"></i>NeuroAssist
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Health Plan Container -->
+    <div class="health-plan-container" id="health-plan-container">
+        <h2 class="text-center mb-4">Personalized Health Plan</h2>
+        <p class="text-center mb-4">Based on your tumor classification: <span id="tumor-type" class="fw-bold">Loading...</span></p>
+        
+        <!-- Diet Section -->
+        <div class="plan-section">
+            <h3 class="plan-title"><i class="fas fa-utensils me-2"></i>Diet Recommendations</h3>
+            
+            <div class="plan-card">
+                <h5><i class="fas fa-info-circle me-2"></i>Overview</h5>
+                <p id="diet-overview">Loading diet overview...</p>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5 class="text-success"><i class="fas fa-check-circle me-2"></i>Recommended Foods</h5>
+                    <ul class="plan-list" id="recommended-foods">
+                        <li>Loading recommended foods...</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-danger"><i class="fas fa-times-circle me-2"></i>Foods to Avoid</h5>
+                    <ul class="plan-list" id="foods-to-avoid">
+                        <li>Loading foods to avoid...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Treatment Section -->
+        <div class="plan-section">
+            <h3 class="plan-title"><i class="fas fa-stethoscope me-2"></i>Treatment Recommendations</h3>
+            
+            <div class="plan-card">
+                <h5><i class="fas fa-info-circle me-2"></i>Treatment Overview</h5>
+                <p id="treatment-overview">Loading treatment overview...</p>
+            </div>
+            
+            <div class="mt-4">
+                <h5><i class="fas fa-procedures me-2"></i>Surgery</h5>
+                <p id="surgery-description">Loading surgery information...</p>
+                
+                <h5><i class="fas fa-radiation me-2"></i>Radiation Therapy</h5>
+                <p id="radiation-description">Loading radiation therapy information...</p>
+                
+                <h5><i class="fas fa-pills me-2"></i>Chemotherapy</h5>
+                <p id="chemotherapy-description">Loading chemotherapy information...</p>
+                
+                <h5><i class="fas fa-crosshairs me-2"></i>Targeted Therapy</h5>
+                <p id="targeted-therapy">Loading targeted therapy information...</p>
+            </div>
+            
+            <div class="plan-card mt-4">
+                <h5><i class="fas fa-tasks me-2"></i>Treatment Priorities</h5>
+                <p id="priority-levels">Loading priority information...</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted">Note: These recommendations are general guidelines. Always consult with your healthcare provider for personalized medical advice.</p>
+            <div class="d-flex justify-content-center gap-3 mt-3">
+                <a href="{{ url_for('chatbot') }}" class="btn btn-primary">
+                    <i class="fas fa-robot me-2"></i>Ask Chatbot for More Information
+                </a>
+                <button id="print-plan" class="btn btn-outline-primary">
+                    <i class="fas fa-print me-2"></i>Print Health Plan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-brain me-2"></i>NeuroAssist</h5>
+                    <p>Advanced brain tumor classification using artificial intelligence.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('index') }}" class="text-white">Home</a></li>
+                        <li><a href="{{ url_for('dashboard') }}" class="text-white">Dashboard</a></li>
+                        <li><a href="#" class="text-white">About</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 NeuroAssist. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
